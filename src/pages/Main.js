@@ -36,12 +36,10 @@ export default function Main({navigation}) {
   }, [id]);
 
   useEffect(() => {
-    const socket = io('http://localhost:3333', {
+    const socket = io('https://tin-dev-backend.herokuapp.com', {
       query: {user: id},
     });
-    console.log(socket);
     socket.on('match', dev => {
-      console.log('dev');
       setMatchDev(dev);
     });
   }, [id]);
